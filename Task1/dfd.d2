@@ -1,0 +1,52 @@
+patient: {
+  label: 'Пациент'
+  shape: person
+}
+
+bookkeeper: {
+  label: 'Бухгалтер'
+  shape: person
+}
+
+warehouse: {
+  label: 'Сотрудник склада'
+  shape: person
+}
+
+cassier: {
+  label: 'Кассир'
+  shape: person
+}
+
+rec: {
+  label: 'Ресепшн'
+}
+
+storage: {
+  label: 'Локальное хранилище'
+}
+
+1cb: {
+  label: '1C Бухгалтерия'
+}
+
+1ct: {
+  label: '1C Торговля и склад'
+}
+
+doctor: {
+  label: 'Доктор'
+}
+
+patient -> rec: 'Перс\мед данные'
+
+rec -> storage: 'сохранение данных о пациенте (xls)'
+rec -> storage: 'Запись пациента (xls)'
+doctor -> storage: 'Просмотр и редактирование журнала'
+
+patient -> cassier: 'Оплата за мед. услуги'
+cassier -> KKM: 'Принятие оплаты'
+KKM -> 1cb: 'Регистрация оплаты'
+1cb -> 1ct: 'Синхронизация данных'
+bookkeeper -> 1cb: 'Работа с фин. документами'
+warehouse -> 1ct: 'Учет ТМЦ'

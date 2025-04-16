@@ -38,15 +38,15 @@ doctor: {
   label: 'Доктор'
 }
 
-patient -> rec: 'Перс\мед данные'
+patient -> rec: 'Перс\мед данные (PI/ADI/EI/MI)'
 
-rec -> storage: 'сохранение данных о пациенте (xls)'
-rec -> storage: 'Запись пациента (xls)'
-doctor -> storage: 'Просмотр и редактирование журнала'
+rec -> storage: 'сохранение данных о пациенте (xls) (PI)'
+rec -> storage: 'Запись пациента (xls) (MI)'
+doctor -> storage: 'Просмотр и редактирование журнала (MI)'
 
-patient -> cassier: 'Оплата за мед. услуги'
-cassier -> KKM: 'Принятие оплаты'
-KKM -> 1cb: 'Регистрация оплаты'
+patient -> cassier: 'Оплата за мед. услуги (FO)'
+cassier -> KKM: 'Принятие оплаты (FO)'
+KKM -> 1cb: 'Регистрация оплаты(FO)'
 1cb -> 1ct: 'Синхронизация данных'
-bookkeeper -> 1cb: 'Работа с фин. документами'
-warehouse -> 1ct: 'Учет ТМЦ'
+bookkeeper -> 1cb: 'Работа с фин. документами(FO)'
+warehouse -> 1ct: 'Учет ТМЦ (WO)'
